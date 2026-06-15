@@ -90,6 +90,8 @@ export class VehicleStatusCardEditor extends BaseEditor implements LovelaceCardE
       const updatedConfig = updateDeprecatedConfig(config);
       fireEvent(this, 'config-changed', { config: updatedConfig });
       return;
+      this._config = cleanConfig(updatedConfig);
+      this.createStore();
     } else {
       this._config = cleanConfig(config);
     }
